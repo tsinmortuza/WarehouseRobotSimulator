@@ -1,0 +1,43 @@
+main.cpp
+   │
+   ├── #include "AVLTree.h"
+   │       └── AVLTree.cpp
+   │
+   ├── #include "TaskQueue.h"
+   │       └── TaskQueue.cpp
+   │
+   ├── #include "MovementHistory.h"
+   │       └── MovementHistory.cpp
+   │
+   ├── #include "BacktrackStack.h"
+   │       └── BacktrackStack.cpp
+   │
+   └── #include "Warehouse.h"
+           └── Warehouse.cpp
+
+Overall Flow :
+
+Inventory Input
+      ↓
+   AVL Tree
+      ↓
+Add Task
+      ↓
+   Task Queue
+      ↓
+Dynamic Greedy
+"Which task is nearest to me NOW?"
+      ↓
+     BFS
+"What's the shortest path to it?"
+      ↓
+Robot moves
+  ↙       ↘
+Stack     Linked List
+Backtrack Movement History
+      ↓
+Robot reaches item
+      ↓
+Remove completed task
+      ↓
+Dynamic Greedy again
