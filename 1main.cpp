@@ -34,7 +34,8 @@ int main() {
         cout << "6. Backtrack last move\n";
         cout << "7. Display warehouse\n";
         cout << "8. Show pending tasks\n";
-        cout << "9. Exit\n";
+        cout << "9. Explore warehouse using DFS\n";
+        cout << "10. Exit\n";
         cout << "\nEnter choice: ";
         cin >> choice;
 
@@ -171,8 +172,12 @@ int main() {
         else if (choice == 8) {
             taskQueue.display();
         }
-        // CASE 9: EXIT
+        // CASE 9: EXPLORE WAREHOUSE USING DFS
         else if (choice == 9) {
+            warehouse.DFS(robotX,robotY);
+        }
+        // CASE 10: EXIT
+        else if (choice == 10) {
             cout << "\nExiting program...\n";
             break;
         }
