@@ -26,6 +26,9 @@ class Warehouse {
             findShortestPath(int startX,int startY,
                 int targetX,int targetY);
 
+        // DFS
+        void DFS(int startX,int startY);
+
         // Dynamic Greedy
         int findNearestTask(const vector<Task>& tasks,
             int robotX,int robotY);
