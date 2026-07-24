@@ -132,3 +132,54 @@ int Warehouse::findNearestTask(const vector<Task>& tasks,
     }
     return nearestIndex;
 }
+
+// DFS - DEPTH FIRST SEARCH
+// Explore all reachable warehouse cells
+void Warehouse::DFS(
+    int startX,
+    int startY
+) {
+
+    // Visited array
+    vector<vector<bool>> visited(ROWS,
+        vector<bool>(COLS,false));
+
+    // Stack for DFS
+    stack<pair<int, int>> s;
+
+    // Start DFS from robot's position
+    s.push({startX,startY});
+    visited[startX][startY] = true;
+
+    // Four possible directions
+    int dx[] = {-1,1,0,0};
+    int dy[] = {0,0,-1,1};
+
+    cout << "\nDFS Warehouse Exploration:\n";
+    while (!s.empty()) {
+        // Get current cell
+        pair<int, int> current =
+            s.top();
+        s.pop();
+
+        int x = current.first;
+        int y = current.second;
+
+        // Print visited cell
+        cout << "(" << x << "," << y << ") ";
+
+        // Check four directions
+        for (int i=0; i<4; i++) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+
+            // Check whether the cell is valid
+            // and has not been visited
+            if (isValid(nx, ny) &&!visited[nx][ny]) {
+                visited[nx][ny] = true;
+                s.push({nx,ny});
+            }
+        }
+    }
+    cout << "\n\nDFS exploration completed.\n";
+}
